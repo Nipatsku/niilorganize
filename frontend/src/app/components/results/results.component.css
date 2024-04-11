@@ -1,0 +1,31 @@
+.calendar {
+    display: table;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .header-row,
+  .hour-row {
+    display: table-row;
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  .header-cell,
+  .hour-cell,
+  .day-cell {
+    display: table-cell;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+  
+  .header-cell {
+    font-weight: bold;
+  }
+  
+  .hour-cell {
+    text-align: center;
+  }
+  
+  .day-cell {
+  }

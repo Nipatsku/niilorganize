@@ -1,0 +1,27 @@
+<div
+  class="calendar"
+  (pointerdown)="onMouseDown($event)"
+  (pointermove)="onMouseMove($event)"
+  (pointerup)="onMouseUp($event)"
+>
+  <!-- Headers for each day of the week -->
+  <div class="header-row">
+    <div class="header-cell"></div>
+    <div
+      class="header-cell"
+      style="text-wrap: nowrap"
+      *ngFor="let date of dates"
+      [attr.data-time]="date.getTime()"
+    >
+      {{
+        date.toLocaleDateString(undefined, { weekday: "short", day: "2-digit" })
+      }}
+    </div>
+  </div>
+
+  <!-- Rows representing hours -->
+  <div class="hour-row" *ngFor="let hour of hours">
+    <div class="hour-cell">{{ hour }}</div>
+    <div class="day-cell" *ngFor="let date of dates"></div>
+  </div>
+</div>

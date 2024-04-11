@@ -1,0 +1,62 @@
+<body class="bg-light">
+  <div class="container">
+    <div class="py-5 text-center">
+      <h2>New meeting</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-8 order-md-1">
+        <form [formGroup]="organizeForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name">Meeting name</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="inviteCount">Person count</label>
+              <select class="form-control" id="inviteCount" formControlName="inviteCount">
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <ngb-datepicker
+              #dp
+              (dateSelect)="onDateSelection($event)"
+              [displayMonths]="2"
+              [dayTemplate]="t"
+              outsideDays="hidden"
+            ></ngb-datepicker>
+            <ng-template #t let-date let-focused="focused">
+              <span
+                class="custom-day"
+                [class.focused]="focused"
+                [class.range]="isRange(date)"
+                [class.faded]="isHovered(date) || isInside(date)"
+                (mouseenter)="hoveredDate = date"
+                (mouseleave)="hoveredDate = null"
+              >
+                {{ date.day }}
+              </span>
+            </ng-template>
+          </div>
+          <hr class="mb-4" />
+          <button class="btn btn-primary btn-lg btn-block" type="submit">
+            Get invite link
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

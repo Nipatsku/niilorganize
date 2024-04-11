@@ -1,0 +1,28 @@
+### 
+
+POST http://localhost:3000/api/auth HTTP/1.1
+content-type: application/json
+
+{
+    "password": "test"
+}
+
+###
+
+GET http://localhost:3000/api/meeting HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdhbml6ZXIiOiJOaWlsbyIsImlhdCI6MTcxMTgxMjg0NywiZXhwIjoxNzEyNDE3NjQ3fQ.h7YIkWgxQY81QTFqcJRhhqOP6-v09dl08qSgChUp8NU
+
+###
+
+POST http://localhost:3000/api/meeting HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdhbml6ZXIiOiJOaWlsbyIsImlhdCI6MTcxMTgxMjg0NywiZXhwIjoxNzEyNDE3NjQ3fQ.h7YIkWgxQY81QTFqcJRhhqOP6-v09dl08qSgChUp8NU
+
+{
+    "organizer": "Niilo",
+    "name": "Test Meeting",
+    "inviteCount": 3,
+    "timestamps": { "hello": true }
+}
+
+###
